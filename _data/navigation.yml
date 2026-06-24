@@ -2,6 +2,8 @@
   url: /
 - title: blog
   url: /blog/
+- title: snippets
+  url: /snippets/
 - title: about
   url: /about/
 - title: credits

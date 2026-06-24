@@ -39,6 +39,25 @@ layout: default
 <div class="flex flex-unequal">
 
   <div class="box flex-item-unequal">
+    <h1>Recent snippets</h1>
+    {%- assign snippets = site.snippets | sort: "date" | reverse | slice: 0, 4 -%}
+    {%- if snippets.size == 0 -%}
+      no snippets yet.
+    {%- else -%}
+    <ul class="short-list">
+      {%- for s in snippets -%}
+        <li><q>{{ s.date | date: "%Y.%m.%d" }}</q> <a href="{{ s.url | relative_url }}">{{ s.title }}</a></li>
+      {%- endfor -%}
+    </ul>
+    <p><a href="{{ '/snippets/' | relative_url }}">→ all snippets</a></p>
+    {%- endif -%}
+  </div>
+
+</div>
+
+<div class="flex flex-unequal">
+
+  <div class="box flex-item-unequal">
     <h1>About</h1>
     a small collective writing notes on computer science and information security, rootkits, reverse engineering, web exploitation, mobile, kernel, AD, and assorted curiosities. each post signed by whoever wrote it. <a href="{{ '/about/' | relative_url }}">more →</a>
   </div>

@@ -6,7 +6,7 @@ permalink: /credits/
 
 ## stack
 
-Built with **Jekyll** and deployed on **GitHub Pages** using the `github-pages` gem (no GitHub Actions). The source is a handful of SCSS partials and a single thirty-line JavaScript file for the theme toggle.
+Built with **Jekyll** and deployed on **GitHub Pages** using the `github-pages` gem (no GitHub Actions). The source is a handful of SCSS partials and two small vanilla JS files: one for the theme toggle, one for the snippets page (copy-to-clipboard and client-side filter).
 
 ## type
 

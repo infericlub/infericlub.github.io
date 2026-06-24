@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<div class="notes">
+  <div class="note-container">
+    <div class="note-title">{{ page.title }}</div>
+    <div class="note-date">snippet</div>
+  </div>
+</div>
+
+<div class="box snippet">
+  {%- if page.tags and page.tags.size > 0 -%}
+  <p class="snippet-tags">
+    {%- for t in page.tags -%}<q>#{{ t }}</q>{%- endfor -%}
+  </p>
+  {%- endif -%}
+  {{ content }}
+  <div class="snippet-footer">
+    <span><q>by</q> {{ page.author }}</span>
+    <button class="snippet-copy" type="button" data-copy-snippet>copy</button>
+  </div>
+</div>
+
+<div class="flex flex-no-wrap nav-prev-next">
+  <div class="box box-alone">
+    <h1><a href="{{ '/snippets/' | relative_url }}">← all snippets</a></h1>
+  </div>
+</div>

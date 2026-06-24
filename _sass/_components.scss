@@ -63,6 +63,84 @@
   margin-right: .6em;
 }
 
+/* SNIPPETS */
+
+.snippet h1 a {
+  color: var(--link);
+  text-decoration: none;
+}
+.snippet h1 a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--underline);
+}
+
+.snippet-tags {
+  margin: 0 0 .5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem .55rem;
+}
+.snippet-tags q {
+  font-size: .9rem;
+  color: var(--underline);
+}
+
+.snippet-footer {
+  margin: 1rem -1rem -1rem;
+  padding: .55rem 1rem;
+  border-top: var(--border-style);
+  background: var(--h1-bg);
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: .75rem;
+  font-size: .95rem;
+}
+.snippet-footer > span:first-child { margin-right: auto; }
+
+.snippet-view,
+.snippet-copy {
+  font: inherit;
+  font-weight: 700;
+  letter-spacing: var(--h1-letter-spacing);
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: var(--underline);
+  cursor: pointer;
+  padding: 0;
+  background: none;
+  border: 0;
+  line-height: inherit;
+}
+.snippet-view:hover,
+.snippet-copy:hover { text-decoration-color: var(--link); }
+.snippet-view:focus-visible,
+.snippet-copy:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+.snippet-copy.is-copied { color: var(--text); }
+
+.snippet-search {
+  width: 100%;
+  margin-top: .75rem;
+  padding: .4rem .55rem;
+  background: var(--bg1);
+  border: var(--border-style);
+  font: inherit;
+  color: var(--text);
+}
+.snippet-search:focus {
+  outline: 2px solid var(--text);
+  outline-offset: -1px;
+}
+
+.snippet-empty {
+  margin: 1rem 0;
+  color: var(--underline);
+  text-align: center;
+}
+
 /* PREV / NEXT NAV BOXES (used on blog/post pages) */
 
 .nav-prev-next {

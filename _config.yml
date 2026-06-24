@@ -6,6 +6,18 @@ lang: en
 permalink: /blog/:slug/
 future: true
 
+collections:
+  snippets:
+    output: true
+    permalink: /snippets/:slug/
+
+defaults:
+  - scope:
+      path: ""
+      type: snippets
+    values:
+      layout: snippet
+
 author:
   name: the inferi collective
   url: https://github.com/inferigang

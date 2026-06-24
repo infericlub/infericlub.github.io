@@ -1,0 +1,37 @@
+---
+layout: default
+title: snippets
+permalink: /snippets/
+---
+
+<div class="box">
+  <h1>snippets</h1>
+  short code fragments. recipes, tricks, one-shot scripts. the kind of thing that doesn't deserve a full post but you don't want to lose either.
+  <input type="search" class="snippet-search" placeholder="filter by title or tag…" data-snippet-search aria-label="filter snippets">
+</div>
+
+{%- assign snippets = site.snippets | sort: "date" | reverse -%}
+{%- if snippets.size == 0 -%}
+  <div class="box box-text-only">no snippets yet.</div>
+{%- else -%}
+{%- for s in snippets -%}
+<div class="box snippet"
+     data-snippet-title="{{ s.title | downcase }}"
+     data-snippet-tags="{% for t in s.tags %}{{ t | downcase }} {% endfor %}">
+  <h1><a href="{{ s.url | relative_url }}">{{ s.title }}</a></h1>
+  {%- if s.tags and s.tags.size > 0 -%}
+  <p class="snippet-tags">
+    {%- for t in s.tags -%}<q>#{{ t }}</q>{%- endfor -%}
+  </p>
+  {%- endif -%}
+  {{ s.content }}
+  <div class="snippet-footer">
+    <span><q>by</q> {{ s.author }}</span>
+    <a class="snippet-view" href="{{ s.url | relative_url }}">view</a>
+    <button class="snippet-copy" type="button" data-copy-snippet>copy</button>
+  </div>
+</div>
+{%- endfor -%}
+{%- endif -%}
+
+<p class="snippet-empty" data-snippet-empty hidden>no snippets match that filter.</p>
