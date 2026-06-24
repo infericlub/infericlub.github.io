@@ -1,0 +1,35 @@
+---
+layout: page
+title: tags
+permalink: /tags/
+---
+
+{% assign sorted_tags = "" | split: "" %}
+{% for tag in site.tags %}
+  {% assign padded = "00000" | append: tag[1].size %}
+  {% assign padded = padded | slice: -5, 5 %}
+  {% assign entry = padded | append: "|" | append: tag[0] %}
+  {% assign sorted_tags = sorted_tags | push: entry %}
+{% endfor %}
+{% assign sorted_tags = sorted_tags | sort | reverse %}
+
+<p class="tag-index">
+  {% for entry in sorted_tags %}
+    {% assign parts = entry | split: "|" %}
+    {% assign count = parts[0] | plus: 0 %}
+    <a href="#{{ parts[1] | slugify }}">{{ parts[1] }}</a>
+    <span class="tabular post-meta__sep">({{ count }})</span>
+    {% unless forloop.last %} <span class="post-tags__sep">·</span> {% endunless %}
+  {% endfor %}
+</p>
+
+{% for entry in sorted_tags %}
+  {% assign parts = entry | split: "|" %}
+  {% assign tag_name = parts[1] %}
+  <h2 id="{{ tag_name | slugify }}">{{ tag_name }}</h2>
+  <ul class="post-list">
+    {% for post in site.tags[tag_name] %}
+      {% include post-list-item.html post=post %}
+    {% endfor %}
+  </ul>
+{% endfor %}
