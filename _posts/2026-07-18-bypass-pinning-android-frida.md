@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "bypass de SSL pinning em Android com Frida"
-date: 2026-07-18 16:20:00 -0300
+date: 2026-01-02 16:20:00 -0300
 author: fnox
 tags: [mobile, android, frida, reverse-engineering, https]
 lang: pt

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "uma olhada nas internas do glibc malloc: tcache"
-date: 2026-09-10 14:45:00 -0300
+date: 2026-01-04 14:45:00 -0300
 author: ratha
 tags: [pwn, exploit, glibc, heap, linux]
 lang: pt

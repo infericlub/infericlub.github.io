@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "tracing syscalls with eBPF: a primer"
-date: 2026-07-05 09:30:00 -0300
+date: 2026-01-01 09:30:00 -0300
 author: k0re
 tags: [linux, ebpf, kernel, observability]
 lang: en

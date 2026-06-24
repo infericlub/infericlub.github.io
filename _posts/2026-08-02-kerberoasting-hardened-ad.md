@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "notes on kerberoasting in a hardened AD"
-date: 2026-08-02 11:00:00 -0300
+date: 2026-01-03 11:00:00 -0300
 author: v3lkro
 tags: [active-directory, red-team, kerberos, post-exploitation]
 lang: en
