@@ -1,0 +1,109 @@
+/* responsive adjustments
+   breakpoints, mobile-first reads from base styles, these layer narrower overrides */
+
+/* tablet / large phone */
+@media (max-width: 720px) {
+  main {
+    padding: 1.25rem 1rem 2rem;
+  }
+}
+
+/* phone */
+@media (max-width: 540px) {
+  /* header: tighter spacing, smaller text so 5 nav items + toggle fit comfortably */
+  .site-header {
+    padding: .35rem .75rem;
+    font-size: .85rem;
+    gap: .5rem;
+  }
+  .site-nav { gap: .5rem .65rem; }
+  .theme-toggle { gap: .2rem; }
+
+  main {
+    padding: 1rem .75rem 1.5rem;
+  }
+
+  /* prev/next nav must stack, not stay side by side */
+  .nav-prev-next {
+    flex-wrap: wrap;
+    gap: .75rem;
+  }
+  .nav-prev-next .box {
+    flex: 1 1 100%;
+  }
+  .nav-prev-next .box.align-right {
+    text-align: left;
+  }
+
+  /* notes header (blog index items, post/snippet header): title above date */
+  .note-container {
+    flex-direction: column;
+    gap: .15rem;
+  }
+  .note-title { margin-right: 0; font-size: 1rem; }
+  .note-date  { margin-left: 0;  font-size: .9rem; }
+
+  /* post-item list (home + tags page) collapses date above title */
+  .post-item {
+    grid-template-columns: 1fr;
+    gap: .25rem;
+  }
+
+  /* slightly tighter box padding, h1 negative margins follow */
+  .box {
+    padding: .85rem;
+  }
+  .box h1, .box h2, .box h3 {
+    margin: -.85rem -.85rem .65rem -.85rem;
+    padding: .5rem .85rem;
+  }
+  .box-alone {
+    padding: .5rem .85rem;
+  }
+  .box-alone h1, .box-alone h2 {
+    margin: -.5rem -.85rem;
+  }
+
+  /* snippet footer wraps cleanly, copy stays at end */
+  .snippet-footer {
+    margin: .85rem -.85rem -.85rem;
+    padding: .5rem .85rem;
+    gap: .5rem;
+  }
+
+  /* notes container internal margins follow the new box padding */
+  .notes {
+    padding: .4rem .85rem;
+  }
+  .note-divide {
+    margin: .4em -.85rem;
+  }
+  .note-container {
+    margin: -.4rem -.85rem;
+    padding: .4rem .85rem;
+  }
+}
+
+/* very narrow (small phones) */
+@media (max-width: 380px) {
+  .site-header { font-size: .8rem; }
+  .site-nav a { white-space: nowrap; }
+}
+
+/* table safety: long content scrolls within the box, never overflows it */
+.prose table {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+  border-collapse: collapse;
+}
+.prose table th,
+.prose table td {
+  border: var(--border-style);
+  padding: .35rem .65rem;
+}
+.prose table th {
+  background: var(--h1-bg);
+  font-weight: 700;
+  text-align: left;
+}
