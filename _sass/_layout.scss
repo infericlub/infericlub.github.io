@@ -94,16 +94,31 @@ main {
 .align-center { text-align: center; }
 .align-right { text-align: right; }
 
-/* THEME TOGGLE BUTTON */
+/* THEME TOGGLE (segmented: theme: light / dark) */
 
 .theme-toggle {
   font: inherit;
-  color: inherit;
   padding: 0;
   line-height: 1;
+  color: var(--underline);
+  display: inline-flex;
+  align-items: baseline;
+  gap: .25rem;
 }
-.theme-toggle:hover { text-decoration: underline; text-decoration-color: var(--link); }
+.theme-toggle:hover { color: var(--text); }
 .theme-toggle:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
+.theme-toggle__label { color: var(--underline); }
+.theme-toggle__state { color: var(--underline); }
+.theme-toggle__sep { color: var(--underline); }
+
+:root[data-theme="light"] .theme-toggle__state[data-state="light"],
+:root[data-theme="dark"]  .theme-toggle__state[data-state="dark"] {
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--text);
+  text-underline-offset: .15em;
+}
 
 a:focus-visible {
   outline: 2px solid var(--text);

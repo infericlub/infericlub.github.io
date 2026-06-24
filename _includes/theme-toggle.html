@@ -1,7 +1,10 @@
 <button class="theme-toggle"
         type="button"
         data-theme-toggle
-        aria-label="toggle theme"
+        aria-label="toggle between light and dark theme"
         aria-pressed="false">
-  <span data-theme-glyph>dark</span>
+  <span class="theme-toggle__label">theme:</span>
+  <span class="theme-toggle__state" data-state="light">light</span>
+  <span class="theme-toggle__sep">/</span>
+  <span class="theme-toggle__state" data-state="dark">dark</span>
 </button>

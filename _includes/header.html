@@ -5,6 +5,5 @@
     {% if page.url == item.url %}{% assign active = true %}{% endif %}
     <a href="{{ item.url }}"{% if active %} class="is-active"{% endif %}>{{ item.title }}</a>
   {%- endfor -%}
-  <a href="{{ '/feed.xml' | relative_url }}">rss</a>
   {% include theme-toggle.html %}
 </nav>

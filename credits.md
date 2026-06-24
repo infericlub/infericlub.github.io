@@ -1,7 +1,7 @@
 ---
 layout: page
-title: colophon
-permalink: /colophon/
+title: credits
+permalink: /credits/
 ---
 
 ## stack
