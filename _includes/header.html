@@ -1,18 +1,10 @@
-<div class="site-head">
-  <div class="site-head__top">
-    <a href="/" class="site-wordmark">inferi.club</a>
-    <div class="site-head__right">
-      {% include theme-toggle.html %}
-      <a class="site-rss" href="{{ '/feed.xml' | relative_url }}">rss</a>
-    </div>
-  </div>
-  <p class="site-tagline">{{ site.tagline }}</p>
-  <nav class="site-nav" aria-label="primary">
-    {%- for item in site.data.navigation -%}
-      {% assign active = false %}
-      {% if page.url == item.url %}{% assign active = true %}{% endif %}
-      <a href="{{ item.url }}"{% if active %} class="is-active"{% endif %}>{{ item.title }}</a>
-      {%- unless forloop.last %} <span class="site-nav__sep">·</span> {% endunless -%}
-    {%- endfor -%}
-  </nav>
-</div>
+<a href="{{ '/' | relative_url }}" class="site-wordmark">inferi.club</a>
+<nav class="site-nav" aria-label="primary">
+  {%- for item in site.data.navigation -%}
+    {% assign active = false %}
+    {% if page.url == item.url %}{% assign active = true %}{% endif %}
+    <a href="{{ item.url }}"{% if active %} class="is-active"{% endif %}>{{ item.title }}</a>
+  {%- endfor -%}
+  <a href="{{ '/feed.xml' | relative_url }}">rss</a>
+  {% include theme-toggle.html %}
+</nav>

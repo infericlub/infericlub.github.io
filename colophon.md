@@ -10,15 +10,15 @@ Built with **Jekyll** and deployed on **GitHub Pages** using the `github-pages` 
 
 ## type
 
-**Open Sans** (400/500/700) for body and headings; **IBM Plex Mono** (400/700) for code. Both loaded via Google Fonts with `preconnect` and `display=swap`. Open Sans does not ship oldstyle figures in its default subset, so dates use tabular lining figures instead — a small concession.
+**Open Sans** for everything; **IBM Plex Mono** for code. Both loaded via Google Fonts with `preconnect` and `display=swap`.
 
-## palette
+## look
 
-A warm off-white (`#F8F5EF`) for light mode and a cool grafite (`#16181C`) for dark mode, with a burnt-orange accent that shifts warmer for dark surfaces. Contrast targets WCAG AA for body text against the background in both palettes.
+Monochromatic — dark gray text on light gray paper, no accent colours. Cells of content live in **boxes**: each box has a hairline border and a hard, zero-blur drop shadow, so the page reads as a scrapbook of stickers laid on a desk. Each box's heading is a small title bar across the top, not a big editorial heading.
 
 ## inspiration
 
-This redesign was inspired by [sweetfish.site](https://sweetfish.site/) — its handcrafted, indie-web feel pushed us toward a more deliberate, type-driven layout. We didn't copy the CSS; we tried to absorb the spirit.
+This redesign was inspired by [sweetfish.site](https://sweetfish.site/) — Ayu's hand-built indie web house, where the box-and-shadow vocabulary first won us over. We didn't copy any of the assets, fonts, or CSS — but the visual structure (panels, hard shadows, `<q>`-as-label, monochrome) is theirs by way of inspiration. Go visit it.
 
 ## license
 

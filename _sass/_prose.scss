@@ -1,65 +1,82 @@
+/* PROSE — sweetfish-style: content lives inside a .box.box-text-only, so
+   headings inside .prose become inset title-bar dividers, not big headings */
+
 .prose {
-  font-size: var(--step-0);
-
-  h1 {
-    margin-top: 0;
-    margin-bottom: 0.25rem;
-  }
-
-  h2 {
-    position: relative;
-  }
-  h2::before {
-    content: "§";
-    color: var(--accent);
-    margin-right: 0.5rem;
-    font-weight: 700;
-  }
-
-  blockquote {
-    border-left: 3px solid var(--rule);
-    padding: 0.25rem 0 0.25rem 1rem;
-    margin: 1.25rem 0;
-    color: var(--ink-soft);
-    font-style: italic;
-  }
-
-  ul, ol { padding-left: 1.5rem; }
-  li { margin: 0.25rem 0; }
-
-  code {
-    background: var(--bg-soft);
-    padding: 0.05rem 0.35rem;
-    border-radius: 3px;
-    font-size: 0.92em;
-  }
-
-  pre {
-    background: var(--bg-soft);
-    border: 1px solid var(--rule);
-    border-radius: 4px;
-    padding: 1rem;
-    overflow-x: auto;
-    font-size: 0.92em;
-    line-height: 1.5;
-  }
-  pre code {
-    background: none;
-    padding: 0;
-    border-radius: 0;
-  }
-
-  img { margin: 1rem 0; border-radius: 2px; }
-
-  hr { border: 0; border-top: 1px solid var(--rule); margin: 2rem 0; }
-  hr.dots { border-top: 0; }
+  font-size: 1rem;
+  line-height: 1.55;
 }
 
-.post-back {
-  margin-bottom: 1rem;
-  color: var(--ink-soft);
+/* prose h1 is rendered by the parent layout (as a box title bar), not inside .prose */
+
+.prose h2,
+.prose h3,
+.prose h4 {
+  margin: 1.5em -1rem .75em -1rem;
+  padding: .55rem 1rem;
+  border-bottom: var(--border-style);
+  background: var(--h1-bg);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: var(--h1-letter-spacing);
 }
-.post-back a { text-decoration: none; }
-.post-back a:hover { color: var(--accent); }
-.post-byline,
-.post-discuss { color: var(--ink-soft); font-size: 0.95rem; }
+
+.prose p { margin: 0 0 .75em; }
+.prose p + p { margin-top: 0; }
+
+.prose ul, .prose ol { padding-left: 2ch; margin: .5em 0 .75em; }
+.prose li { margin-bottom: .35em; line-height: 1.5; }
+.prose li:last-child { margin-bottom: 0; }
+.prose ul li::marker { content: "→ "; color: var(--underline); }
+
+.prose blockquote {
+  border-left: 1px solid var(--underline);
+  padding: 0 0 0 1.5ch;
+  margin: 1em 0;
+  color: var(--underline);
+  font-style: italic;
+}
+
+.prose code {
+  background: var(--bg1);
+  padding: 0 .35rem;
+  border: var(--border-style);
+  font-size: 0.92em;
+}
+
+.prose pre {
+  background: var(--bg1);
+  border: var(--border-style);
+  padding: 1rem;
+  overflow-x: auto;
+  font-size: 0.92em;
+  line-height: 1.5;
+  margin: .75em 0;
+}
+.prose pre code {
+  background: none;
+  padding: 0;
+  border: 0;
+  font-size: inherit;
+}
+
+.prose hr {
+  height: 1px;
+  border: 0;
+  border-top: var(--border-style);
+  margin: 1em -1rem;
+}
+
+.prose img {
+  border: var(--border-style);
+  margin: 1rem 0;
+}
+
+.prose figure { margin: 1rem 0; }
+.prose figure figcaption {
+  margin-top: .5rem;
+  font-size: .85rem;
+  color: var(--underline);
+}
+
+.prose a { color: var(--link); text-decoration: underline; text-decoration-color: var(--underline); }
+.prose a:hover { text-decoration-color: var(--link); }

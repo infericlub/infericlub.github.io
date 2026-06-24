@@ -4,14 +4,23 @@ title: blog
 permalink: /blog/
 ---
 
-<h1>blog</h1>
+<div class="box">
+  <h1>blog</h1>
+  you can <a href="{{ '/feed.xml' | relative_url }}">subscribe via RSS</a>, if you'd like.
+</div>
 
-{% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
-{% for year_group in posts_by_year %}
-  <h2 class="year-heading">{{ year_group.name }}</h2>
-  <ul class="post-list">
-    {% for post in year_group.items %}
-      {% include post-list-item.html post=post %}
-    {% endfor %}
-  </ul>
-{% endfor %}
+{%- if site.posts.size == 0 -%}
+  <div class="box box-text-only">no posts yet.</div>
+{%- else -%}
+<div class="notes">
+  {%- for post in site.posts -%}
+  <a href="{{ post.url | relative_url }}">
+    <div class="note-container">
+      <div class="note-title">{{ post.title }}</div>
+      <div class="note-date">{{ post.date | date: "%b %Y" }}</div>
+    </div>
+  </a>
+  {%- unless forloop.last %}<div class="note-divide"></div>{%- endunless -%}
+  {%- endfor -%}
+</div>
+{%- endif -%}

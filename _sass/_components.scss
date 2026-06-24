@@ -1,66 +1,74 @@
-.post-list {
+/* NOTES — used for blog index list and post page headers */
+
+.notes {
+  font-size: 1rem;
+  padding: .5rem 1rem;
+  margin-bottom: 1.3rem;
+  border: var(--border-style);
+  filter: var(--drop-shadow-style);
+  background: var(--bg2);
+  color: var(--h1-text);
+}
+.note-divide {
+  margin: .5em -1em;
+  border-top: var(--border-style);
+}
+.note-container {
+  display: flex;
+  flex-wrap: wrap;
+  background: var(--h1-bg);
+  margin: -.5rem -1rem;
+  padding: .55rem 1rem;
+  font-weight: 700;
+  letter-spacing: var(--h1-letter-spacing);
+}
+.note-title {
+  display: flex;
+  margin-right: auto;
+  font-size: 1.15rem;
+}
+.note-date {
+  display: flex;
+  margin-left: auto;
+  color: var(--underline);
+  font-size: 1.15rem;
+}
+.notes a { text-decoration: none; }
+.notes a:hover { text-decoration: underline; text-decoration-color: var(--underline); }
+
+/* HOME-INDEX SHORT-LISTS — used inside boxes (recent posts, elsewhere, tags) */
+
+.short-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-.post-item {
-  display: grid;
-  grid-template-columns: 7.5rem 1fr;
-  gap: 1rem;
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--rule);
+.short-list li {
+  margin-bottom: .35em;
+  line-height: 1.4;
 }
-.post-item:last-child { border-bottom: 0; }
-.post-item__date {
-  color: var(--ink-soft);
-  font-variant-numeric: tabular-nums;
-}
-.post-item__title {
-  display: block;
-  font-weight: 500;
-  font-size: var(--step-1);
-  text-decoration: none;
-}
-.post-item__title:hover { color: var(--accent); }
-.post-item__excerpt {
-  margin: 0.25rem 0 0;
-  color: var(--ink-soft);
-  font-size: 0.95rem;
-}
-.post-item__tags,
-.post-tags {
-  margin: 0.4rem 0 0;
-  color: var(--ink-soft);
-  font-size: 0.9rem;
-}
-.post-tags__sep,
-.post-meta__sep { color: var(--rule); margin: 0 0.2rem; }
+.short-list li:last-child { margin-bottom: 0; }
 
-.section-title {
-  font-size: var(--step-1);
-  margin: 0 0 0.5rem;
-  color: var(--ink-soft);
-  font-weight: 500;
+/* TAG LIST (header of tags page) */
+
+.tag-index {
+  margin-top: 0;
+  color: var(--underline);
+}
+.tag-index a {
+  color: var(--link);
+  margin-right: .25em;
 }
 
-.more-link {
-  display: inline-block;
-  margin-top: 1.5rem;
-  text-decoration: none;
-}
-.more-link:hover { color: var(--accent); }
+/* PREV / NEXT NAV BOXES (used on blog/post pages) */
 
-@media (max-width: 540px) {
-  .post-item { grid-template-columns: 1fr; gap: 0.25rem; }
+.nav-prev-next {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.3rem;
 }
-
-.year-heading {
-  position: relative;
-  margin-top: 2rem;
+.nav-prev-next .box {
+  flex: 1 1 50%;
+  margin: 0;
 }
-.year-heading::before {
-  content: "§";
-  color: var(--accent);
-  margin-right: 0.5rem;
-  font-weight: 700;
-}
+.nav-prev-next .box.align-right { text-align: right; }

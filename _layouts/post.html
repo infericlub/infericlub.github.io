@@ -1,25 +1,45 @@
 ---
 layout: default
 ---
-<p class="post-back"><a href="{{ '/blog/' | relative_url }}">← blog</a></p>
 
-<article class="prose" lang="{{ page.lang | default: site.lang }}">
-  <h1>{{ page.title }}</h1>
-  {% include post-meta.html post=page %}
-  <hr class="dots">
-  {{ content }}
-  <hr class="dots">
-  <p class="post-byline">
-    written by {{ page.author | default: site.author.name }}
-    <span class="post-meta__sep">·</span>
-    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y.%m.%d" }}</time>
-  </p>
-  {% if page.discuss %}
-    <p class="post-discuss">
-      discuss:
-      {%- if page.discuss.github %} <a href="{{ page.discuss.github }}">github</a>{% endif -%}
-      {%- if page.discuss.github and page.discuss.twitter %} <span class="post-meta__sep">·</span>{% endif -%}
-      {%- if page.discuss.twitter %} <a href="{{ page.discuss.twitter }}">twitter</a>{% endif -%}
+<div class="notes">
+  <div class="note-container">
+    <div class="note-title">{{ page.title }}</div>
+    <div class="note-date">{{ page.date | date: "%b %d %Y" }}</div>
+  </div>
+</div>
+
+<div class="box box-text-only">
+  <article class="prose" lang="{{ page.lang | default: site.lang }}">
+    {%- assign words = content | number_of_words -%}
+    {%- assign minutes = words | divided_by: 200 -%}
+    {%- if minutes < 1 %}{% assign minutes = 1 %}{% endif -%}
+    <p class="meta-soft">
+      <q>{{ page.date | date: "%Y.%m.%d" }}</q> · {{ minutes }} min read · {{ page.lang | default: site.lang }}
+      {%- if page.tags and page.tags.size > 0 %} · {% for t in page.tags %}<a href="{{ '/tags/' | relative_url }}#{{ t | slugify }}">{{ t }}</a>{% unless forloop.last %} · {% endunless %}{% endfor %}{% endif %}
     </p>
-  {% endif %}
-</article>
+
+    {{ content }}
+
+    <hr>
+
+    <p class="meta-soft">
+      <q>written by</q> {{ page.author | default: site.author.name }}
+      {%- if page.discuss -%}
+        <br><q>discuss</q>
+        {%- if page.discuss.github %} <a href="{{ page.discuss.github }}">github</a>{% endif -%}
+        {%- if page.discuss.github and page.discuss.twitter %} · {% endif -%}
+        {%- if page.discuss.twitter %}<a href="{{ page.discuss.twitter }}">twitter</a>{% endif -%}
+      {%- endif -%}
+    </p>
+  </article>
+</div>
+
+<div class="flex flex-no-wrap nav-prev-next">
+  <div class="box box-alone">
+    <h1>{%- if page.previous -%}<a href="{{ page.previous.url | relative_url }}">← {{ page.previous.title }}</a>{%- else -%}<a href="{{ '/blog/' | relative_url }}">← blog</a>{%- endif -%}</h1>
+  </div>
+  <div class="box box-alone align-right">
+    <h1>{%- if page.next -%}<a href="{{ page.next.url | relative_url }}">{{ page.next.title }} →</a>{%- else -%}<a href="{{ '/blog/' | relative_url }}">blog →</a>{%- endif -%}</h1>
+  </div>
+</div>

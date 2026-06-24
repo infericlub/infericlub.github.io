@@ -1,12 +1,11 @@
-*, *::before, *::after { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { -webkit-text-size-adjust: 100%; }
 
 body {
-  margin: 0;
   min-height: 100vh;
-  background: var(--bg);
-  color: var(--ink);
+  background: var(--bg1);
+  color: var(--text);
 }
 
 img, svg, video { max-width: 100%; height: auto; display: block; }
@@ -16,8 +15,7 @@ button {
   color: inherit;
   background: none;
   border: 0;
-  padding: 0;
   cursor: pointer;
 }
 
-a { color: inherit; }
+a { color: var(--link); }

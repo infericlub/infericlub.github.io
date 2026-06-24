@@ -1,15 +1,59 @@
 ---
 layout: default
 ---
-<hr class="dots">
-<section class="home-recent">
-  <h2 class="section-title">recent</h2>
-  <ul class="post-list">
+
+<div class="box">
+  <h1>{{ site.title }}</h1>
+  {{ site.tagline }}.
+</div>
+
+<div class="flex flex-unequal">
+
+  <div class="box flex-item-unequal">
+    <h1>Recent posts</h1>
     {%- assign posts = site.posts | slice: 0, 5 -%}
-    {%- for post in posts -%}
-      {% include post-list-item.html post=post %}
-    {%- endfor -%}
-  </ul>
-  <a class="more-link" href="{{ '/blog/' | relative_url }}">→ all posts</a>
-</section>
-<hr class="dots">
+    {%- if posts.size == 0 -%}
+      no posts yet — the lamp is being lit.
+    {%- else -%}
+    <ul class="short-list">
+      {%- for post in posts -%}
+        <li><q>{{ post.date | date: "%Y.%m.%d" }}</q> <a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+      {%- endfor -%}
+    </ul>
+    <p><a href="{{ '/blog/' | relative_url }}">→ all posts</a></p>
+    {%- endif -%}
+  </div>
+
+  <div class="box flex-item-unequal" style="min-width: 14rem;">
+    <h1>Find us elsewhere</h1>
+    <ul class="short-list">
+      {%- if site.social.github -%}<li><q>github</q> <a href="{{ site.social.github }}">inferigang</a></li>{%- endif -%}
+      {%- if site.social.twitter -%}<li><q>twitter</q> <a href="{{ site.social.twitter }}">inferigang</a></li>{%- endif -%}
+      {%- if site.social.discord -%}<li><q>discord</q> <a href="{{ site.social.discord }}">inferi.club</a></li>{%- endif -%}
+      <li><q>rss</q> <a href="{{ '/feed.xml' | relative_url }}">feed.xml</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="flex flex-unequal">
+
+  <div class="box flex-item-unequal">
+    <h1>About</h1>
+    a small writing desk for notes on computer science and information security: rootkits, reverse engineering, web exploitation, mobile, and assorted curiosities. <a href="{{ '/about/' | relative_url }}">more →</a>
+  </div>
+
+  <div class="box flex-item-unequal" style="min-width: 14rem;">
+    <h1>Tags</h1>
+    {%- if site.tags.size == 0 -%}
+      no tags yet.
+    {%- else -%}
+      <p class="tag-index">
+        {%- for tag in site.tags -%}
+          <a href="{{ '/tags/' | relative_url }}#{{ tag[0] | slugify }}">{{ tag[0] }}</a>
+        {%- endfor -%}
+      </p>
+    {%- endif -%}
+  </div>
+
+</div>

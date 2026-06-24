@@ -1,19 +1,24 @@
+/* Rouge syntax tokens — monochromatic, matches the sweetfish-style aesthetic. */
+
 .highlight {
-  color: var(--ink);
-  background: var(--bg-soft);
+  color: var(--text);
+  background: var(--bg1);
 }
+
 .highlight .c,
 .highlight .c1,
 .highlight .cm,
 .highlight .cp,
-.highlight .cs { color: var(--ink-soft); font-style: italic; }
+.highlight .cs { color: var(--underline); font-style: italic; }
+
 .highlight .k,
 .highlight .kc,
 .highlight .kd,
 .highlight .kn,
 .highlight .kp,
 .highlight .kr,
-.highlight .kt { color: var(--accent); font-weight: 700; }
+.highlight .kt { color: var(--text); font-weight: 700; }
+
 .highlight .s,
 .highlight .s1,
 .highlight .s2,
@@ -25,7 +30,8 @@
 .highlight .si,
 .highlight .sx,
 .highlight .sr,
-.highlight .ss { color: var(--ink); font-style: italic; }
+.highlight .ss { color: var(--text); font-style: italic; }
+
 .highlight .n,
 .highlight .na,
 .highlight .nb,
@@ -39,14 +45,17 @@
 .highlight .no,
 .highlight .nt,
 .highlight .nv,
-.highlight .nx { color: var(--ink); }
+.highlight .nx { color: var(--text); }
+
 .highlight .o,
 .highlight .ow,
-.highlight .p { color: var(--ink-soft); }
+.highlight .p { color: var(--underline); }
+
 .highlight .m,
 .highlight .mb,
 .highlight .mf,
 .highlight .mh,
 .highlight .mi,
-.highlight .mo { color: var(--accent); }
-.highlight .err { color: var(--accent); background: var(--accent-soft); }
+.highlight .mo { color: var(--text); font-weight: 700; }
+
+.highlight .err { color: var(--text); text-decoration: underline wavy var(--underline); }
