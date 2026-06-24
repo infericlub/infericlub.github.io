@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<p class="post-back"><a href="{{ '/blog/' | relative_url }}">← blog</a></p>
+
+<article class="prose" lang="{{ page.lang | default: site.lang }}">
+  <h1>{{ page.title }}</h1>
+  {% include post-meta.html post=page %}
+  <hr class="dots">
+  {{ content }}
+  <hr class="dots">
+  <p class="post-byline">
+    written by {{ page.author | default: site.author.name }}
+    <span class="post-meta__sep">·</span>
+    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y.%m.%d" }}</time>
+  </p>
+  {% if page.discuss %}
+    <p class="post-discuss">
+      discuss:
+      {%- if page.discuss.github %} <a href="{{ page.discuss.github }}">github</a>{% endif -%}
+      {%- if page.discuss.github and page.discuss.twitter %} <span class="post-meta__sep">·</span>{% endif -%}
+      {%- if page.discuss.twitter %} <a href="{{ page.discuss.twitter }}">twitter</a>{% endif -%}
+    </p>
+  {% endif %}
+</article>

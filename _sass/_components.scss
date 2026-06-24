@@ -53,3 +53,14 @@
 @media (max-width: 540px) {
   .post-item { grid-template-columns: 1fr; gap: 0.25rem; }
 }
+
+.year-heading {
+  position: relative;
+  margin-top: 2rem;
+}
+.year-heading::before {
+  content: "§";
+  color: var(--accent);
+  margin-right: 0.5rem;
+  font-weight: 700;
+}
