@@ -13,7 +13,7 @@ layout: default
     <h1>Recent posts</h1>
     {%- assign posts = site.posts | slice: 0, 5 -%}
     {%- if posts.size == 0 -%}
-      no posts yet — the lamp is being lit.
+      no posts yet, the lamp is being lit.
     {%- else -%}
     <ul class="short-list">
       {%- for post in posts -%}
@@ -40,7 +40,7 @@ layout: default
 
   <div class="box flex-item-unequal">
     <h1>About</h1>
-    a small collective writing notes on computer science and information security — rootkits, reverse engineering, web exploitation, mobile, kernel, AD, and assorted curiosities. each post signed by whoever wrote it. <a href="{{ '/about/' | relative_url }}">more →</a>
+    a small collective writing notes on computer science and information security, rootkits, reverse engineering, web exploitation, mobile, kernel, AD, and assorted curiosities. each post signed by whoever wrote it. <a href="{{ '/about/' | relative_url }}">more →</a>
   </div>
 
   <div class="box flex-item-unequal" style="min-width: 14rem;">

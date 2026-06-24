@@ -7,7 +7,7 @@
   function sync() {
     var t = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
     btn.setAttribute('aria-pressed', t === 'dark' ? 'true' : 'false');
-    if (glyph) glyph.textContent = t === 'dark' ? '☀' : '☾';
+    if (glyph) glyph.textContent = t === 'dark' ? 'light' : 'dark';
   }
 
   sync();

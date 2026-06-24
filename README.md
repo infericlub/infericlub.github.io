@@ -1,6 +1,6 @@
 # inferi.club
 
-Source for the [inferi.club](https://inferi.club) blog — Jekyll on GitHub Pages, light/dark, Markdown posts.
+Source for the [inferi.club](https://inferi.club) blog, Jekyll on GitHub Pages, light/dark, Markdown posts.
 
 ## local dev
 

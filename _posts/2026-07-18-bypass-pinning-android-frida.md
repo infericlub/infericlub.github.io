@@ -5,7 +5,7 @@ date: 2026-07-18 16:20:00 -0300
 author: fnox
 tags: [mobile, android, frida, reverse-engineering, https]
 lang: pt
-excerpt: "três caminhos pra burlar pinning em apps Android — TrustManager genérico, OkHttp CertificatePinner, e o caso chato quando o pinning é nativo."
+excerpt: "três caminhos pra burlar pinning em apps Android, TrustManager genérico, OkHttp CertificatePinner, e o caso chato quando o pinning é nativo."
 ---
 
 Pinning de certificado em Android tem três encarnações comuns:
@@ -45,7 +45,7 @@ Java.perform(function () {
     );
 
     init.implementation = function (kms, _ignored, sr) {
-        console.log("[+] SSLContext.init — swapping TrustManagers");
+        console.log("[+] SSLContext.init, swapping TrustManagers");
         init.call(this, kms, tms, sr);
     };
 });
@@ -71,13 +71,13 @@ try {
 }
 ```
 
-`Java.use(...)` lança se a classe não estiver no classloader, então o `try` é importante — não é todo APK que linka OkHttp.
+`Java.use(...)` lança se a classe não estiver no classloader, então o `try` é importante, não é todo APK que linka OkHttp.
 
 ## rodando
 
 ```text
 $ frida -U -f com.target.app -l pinning-bypass.js --no-pause
-[+] SSLContext.init — swapping TrustManagers
+[+] SSLContext.init, swapping TrustManagers
 [+] okhttp3.CertificatePinner.check bypass: api.target.com
 ```
 
@@ -85,7 +85,7 @@ Se você está com Burp/mitmproxy escutando na máquina e configurou o proxy no 
 
 ## quando não funciona
 
-- **APK com integrity check / RASP.** Apps "endurecidas" detectam que o Frida server está rodando (porta TCP, nomes de thread, `/proc/self/maps`). Frida + `frida-magisk-gadget` + scripts anti-RASP são o caminho — mas é gato e rato.
+- **APK com integrity check / RASP.** Apps "endurecidas" detectam que o Frida server está rodando (porta TCP, nomes de thread, `/proc/self/maps`). Frida + `frida-magisk-gadget` + scripts anti-RASP são o caminho, mas é gato e rato.
 - **Pinning em código nativo.** A checagem rola dentro do JNI ou de uma `libssl.so` modificada estaticamente. Aí você precisa achar a função em IDA/Ghidra e patchear (`r2frida`, `Interceptor.attach` em endereços, ou rebuild da `.so`).
 - **App usa BoringSSL diretamente.** Sem `okhttp3.CertificatePinner` no path, com handshake feito em código nativo. Mesmo problema do anterior.
 
@@ -97,4 +97,4 @@ Não deixe o `frida-server` rodando no device depois. E não esqueça de derruba
 $ adb shell su -c iptables -t nat -F
 ```
 
-Se o objetivo é só ler o tráfego, é o suficiente. Se a meta é entender a lógica do app, este é o começo — não o fim.
+Se o objetivo é só ler o tráfego, é o suficiente. Se a meta é entender a lógica do app, este é o começo, não o fim.
