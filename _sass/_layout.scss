@@ -50,6 +50,8 @@ main {
   background: var(--bg2);
   border: var(--border-style);
   filter: var(--drop-shadow-style);
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 .box-alone { padding: .55rem 1rem; }
 .box-text-only { padding-top: .85rem; }
@@ -87,7 +89,7 @@ main {
 .flex-no-wrap { flex-wrap: nowrap; }
 .flex-unequal { flex-wrap: nowrap; gap: 1.3rem; }
 @media (max-width: 680px) { .flex-unequal { flex-wrap: wrap; } }
-.flex-item-unequal { flex: 1 1 fit-content; min-width: 8rem; }
+.flex-item-unequal { flex: 1 1 0; min-width: 8rem; }
 
 .align-center { text-align: center; }
 .align-right { text-align: right; }
