@@ -1,0 +1,18 @@
+{%- assign p = include.post -%}
+<li class="post-item">
+  <time class="post-item__date tabular" datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: "%Y.%m.%d" }}</time>
+  <div class="post-item__body">
+    <a class="post-item__title" href="{{ p.url | relative_url }}">{{ p.title }}</a>
+    {%- if p.excerpt -%}
+      <p class="post-item__excerpt">{{ p.excerpt | strip_html | strip_newlines | truncate: 140 }}</p>
+    {%- endif -%}
+    {%- if p.tags and p.tags.size > 0 -%}
+      <p class="post-item__tags">
+        {%- for t in p.tags -%}
+          <a href="{{ '/tags/' | relative_url }}#{{ t | slugify }}">{{ t }}</a>
+          {%- unless forloop.last %} <span class="post-tags__sep">·</span> {% endunless -%}
+        {%- endfor -%}
+      </p>
+    {%- endif -%}
+  </div>
+</li>

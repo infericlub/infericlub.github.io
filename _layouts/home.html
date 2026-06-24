@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<hr class="dots">
+<section class="home-recent">
+  <h2 class="section-title">recent</h2>
+  <ul class="post-list">
+    {%- assign posts = site.posts | slice: 0, 5 -%}
+    {%- for post in posts -%}
+      {% include post-list-item.html post=post %}
+    {%- endfor -%}
+  </ul>
+  <a class="more-link" href="{{ '/blog/' | relative_url }}">→ all posts</a>
+</section>
+<hr class="dots">
