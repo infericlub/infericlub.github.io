@@ -4,8 +4,10 @@ title: about
 permalink: /about/
 ---
 
-inferi.club is a small writing desk for notes on computer science and information security: rootkits, reverse engineering, web exploitation, mobile, and assorted curiosities that don't fit elsewhere.
+inferi is a small **collective** of researchers and engineers writing about computer science and information security — rootkits, reverse engineering, web exploitation, mobile, Active Directory, kernel internals, and assorted curiosities that don't fit anywhere else.
 
-Posts are written in Markdown, in English or Portuguese, by people in and around the inferi collective.
+Each post is signed by whoever wrote it. We don't agree on everything; we share a desk.
 
-The shorter the post, the better the discipline. Long ones are welcome too.
+Posts are written in Markdown, in English or Portuguese, depending on the author's mood and the topic. The shorter the post, the better the discipline — but long ones are welcome too.
+
+We don't take submissions yet. If you want to talk, find us on [github](https://github.com/inferigang), [twitter](https://twitter.com/inferigang), or in the discord.

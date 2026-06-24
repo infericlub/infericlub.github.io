@@ -1,12 +1,13 @@
-title: inferi.club
-tagline: a writing desk for cs & security notes
-description: notes on computer science and information security
+title: inferi
+tagline: a collective writing desk for cs & security notes
+description: a collective of researchers writing about computer science and information security
 url: https://inferi.club
 lang: en
 permalink: /blog/:slug/
+future: true
 
 author:
-  name: inferigang
+  name: the inferi collective
   url: https://github.com/inferigang
 
 social:
