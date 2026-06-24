@@ -4,6 +4,12 @@ title: tags
 permalink: /tags/
 ---
 
+{%- comment -%}
+  Liquid sort is alphabetical, so to order tags by post-count desc we
+  zero-pad the count to 5 chars and prepend it to the tag name. After
+  `| sort | reverse`, entries come back in count-descending order with
+  ties broken alphabetically by name. Supports up to 99,999 posts per tag.
+{%- endcomment -%}
 {% assign sorted_tags = "" | split: "" %}
 {% for tag in site.tags %}
   {% assign padded = "00000" | append: tag[1].size %}
