@@ -1,0 +1,21 @@
+.container {
+  width: min(38rem, calc(100vw - 2rem));
+  margin-inline: auto;
+}
+
+.site-header,
+.site-main,
+.site-footer { padding-block: 2rem; }
+
+.site-main { min-height: 60vh; }
+
+hr.dots {
+  border: 0;
+  text-align: center;
+  margin: 2.5rem 0;
+  color: var(--ink-soft);
+}
+hr.dots::before {
+  content: "· · ·";
+  letter-spacing: 0.4em;
+}
