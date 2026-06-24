@@ -1,0 +1,39 @@
+title: inferi.club
+tagline: a writing desk for cs & security notes
+description: notes on computer science and information security
+url: https://inferi.club
+lang: en
+permalink: /blog/:slug/
+
+author:
+  name: inferigang
+  url: https://github.com/inferigang
+
+social:
+  github: https://github.com/inferigang
+  twitter: https://twitter.com/inferigang
+  discord: https://discord.gg/REPLACE-ME   # replace before deploy
+  rss: /feed.xml
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: highlight
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+include:
+  - CNAME
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - docs
+  - .jekyll-cache
