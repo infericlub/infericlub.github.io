@@ -11,13 +11,28 @@
 .prose h2,
 .prose h3,
 .prose h4 {
-  margin: 1.5em -1rem .75em -1rem;
+  margin: 1.75em -1rem .75em -1rem;
   padding: .55rem 1rem;
   border-bottom: var(--border-style);
-  background: var(--h1-bg);
-  font-size: 1.15rem;
   font-weight: 700;
   letter-spacing: var(--h1-letter-spacing);
+}
+.prose h2 {
+  background: var(--h2-bg);
+  font-size: 1.25rem;
+}
+.prose h3 {
+  background: var(--h3-bg);
+  font-size: 1.1rem;
+  margin-top: 1.5em;
+}
+.prose h4 {
+  background: none;
+  border-bottom: 1px solid var(--underline);
+  margin: 1.25em 0 .5em;
+  padding: 0 0 .25rem;
+  font-size: 1rem;
+  letter-spacing: 0;
 }
 
 .prose p { margin: 0 0 .75em; }

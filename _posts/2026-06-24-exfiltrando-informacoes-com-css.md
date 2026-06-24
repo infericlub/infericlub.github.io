@@ -33,11 +33,13 @@ Esse comportamento de aplicar estilos em determinados elementos a depender da co
 
 ## SOP, CSP e CSRF
 
+### SOP (Same-Origin Policy)
+
 Antes de pensarmos em exfiltrar algo, é de pensar o risco que isso gera visto que é totalmente possível, por isso, atualmente existem diversas proteções embutidas pelos próprios navegadores e outras que podem ser aplicadas em aplicações para ajudar a mitigar esse risco.
 
 SOP ou *Same-Origin Policy* é um mecanismo nativo dos navegadores modernos para garantir que uma requisição de A para B respeite a origem dela e estabeça algumas políticas para entender se aquela requisição é segura ou não. Essa política é baseada na origem, onde avalia-se: `scheme`, `host`e `port`.
 
-| Origin                      | Scheme | Host         | Port | Trusted? |
+| Origin                      | Scheme | Host         | Port | Confiável? |
 |-----------------------------|--------|--------------|------|---------|
 | https://www.facebook.com/perfil | HTTPS  | facebook.com | 443  | Sim     |
 | https://www.facebook.com/amigos | HTTPS  | facebook.com | 443  | Sim     |
@@ -49,3 +51,12 @@ Com a tabela acima fica mais fácil de entender como essas políticas são aplic
 Todavia, se olhamos para a terceira linha, há duas diferenças que quebram essa política. Primeiro é o esquema, que neste caso é o HTTP. Um outro problema é que por ser uma requisição HTTP, naturalmente ela tende a usar a porta 80, o que também já é uma segunda violação da política. Somando tudo isso, entende-se que não é uma requisição confiável para a origem alvo.
 
 Assim como na quarta linha, que também há uma violação da política, que neste caso é o host diferente. Mesmo que ainda sim seja um subdomínio ligado ao facebook.com, não é exatamente www.facebook.com e sim mobile.facebook.com. Então a política não confia e também não permite que a origem B (mobile.facebook.com) leia a resposta da origem A (facebook.com) via JavaScript.
+
+### CSP (Content-Security-Policy)
+
+...
+
+### CSRF (Cross-Site Request Forgery)
+
+...
+

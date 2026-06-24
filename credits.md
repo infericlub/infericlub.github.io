@@ -8,6 +8,18 @@ permalink: /credits/
 
 Built with **Jekyll** and deployed on **GitHub Pages** using the `github-pages` gem (no GitHub Actions). The source is a handful of SCSS partials and two small vanilla JS files: one for the theme toggle, one for the snippets page (copy-to-clipboard and client-side filter).
 
+### plugins
+
+Three Jekyll plugins, all on the GitHub Pages allowlist:
+
+- `jekyll-feed`, RSS at [/feed.xml](/feed.xml).
+- `jekyll-seo-tag`, OpenGraph and meta tags.
+- `jekyll-sitemap`, sitemap at [/sitemap.xml](/sitemap.xml).
+
+#### why not Jekyll 4?
+
+The `github-pages` gem pins Jekyll to 3.x, which is fine for the scope. Moving to Jekyll 4 would mean configuring a custom GitHub Actions build, which is more rope to manage for marginal gains.
+
 ## type
 
 **Open Sans** for everything; **IBM Plex Mono** for code. Both loaded via Google Fonts with `preconnect` and `display=swap`.
