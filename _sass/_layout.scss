@@ -51,7 +51,7 @@ main {
   border: var(--border-style);
   filter: var(--drop-shadow-style);
   min-width: 0;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 .box-alone { padding: .55rem 1rem; }
 .box-text-only { padding-top: .85rem; }

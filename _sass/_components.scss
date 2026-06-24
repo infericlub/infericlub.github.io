@@ -54,10 +54,13 @@
 .tag-index {
   margin-top: 0;
   color: var(--underline);
+  line-height: 1.7;
 }
 .tag-index a {
+  display: inline-block;
   color: var(--link);
-  margin-right: .25em;
+  white-space: nowrap;
+  margin-right: .6em;
 }
 
 /* PREV / NEXT NAV BOXES (used on blog/post pages) */
