@@ -1,1 +1,14 @@
-<small>© inferi.club</small>
+<hr class="dots">
+<div class="site-foot">
+  <p class="site-foot__meta">
+    © {{ "now" | date: "%Y" }} {{ site.title }}
+    · built with <a href="https://jekyllrb.com">jekyll</a>
+    · <a href="https://creativecommons.org/licenses/by-sa/4.0/">cc by-sa 4.0</a>
+  </p>
+  <p class="site-foot__social">
+    {%- if site.social.github -%}<a href="{{ site.social.github }}">github</a>{%- endif -%}
+    {%- if site.social.twitter -%} <span class="site-nav__sep">·</span> <a href="{{ site.social.twitter }}">twitter</a>{%- endif -%}
+    {%- if site.social.discord -%} <span class="site-nav__sep">·</span> <a href="{{ site.social.discord }}">discord</a>{%- endif -%}
+    <span class="site-nav__sep">·</span> <a href="{{ '/feed.xml' | relative_url }}">rss</a>
+  </p>
+</div>

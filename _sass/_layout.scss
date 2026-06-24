@@ -19,3 +19,37 @@ hr.dots::before {
   content: "· · ·";
   letter-spacing: 0.4em;
 }
+
+.site-head__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.site-wordmark {
+  font-weight: 700;
+  font-size: var(--step-1);
+  text-decoration: none;
+}
+.site-head__right { display: inline-flex; gap: 1rem; align-items: baseline; }
+.site-tagline {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin: 0.25rem 0 1rem;
+}
+.site-nav { color: var(--ink-soft); }
+.site-nav a { text-decoration: none; }
+.site-nav a.is-active {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 3px;
+  color: var(--ink);
+}
+.site-nav__sep { color: var(--rule); margin: 0 0.25rem; }
+.site-rss { text-decoration: none; }
+.site-rss:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+.site-foot { color: var(--ink-soft); font-size: 0.95rem; }
+.site-foot a { text-decoration: none; }
+.site-foot a:hover { text-decoration: underline; text-decoration-color: var(--accent); color: var(--accent); }
+.site-foot__meta { margin: 0 0 0.25rem; }
+.site-foot__social { margin: 0; }
