@@ -53,3 +53,20 @@ hr.dots::before {
 .site-foot a:hover { text-decoration: underline; text-decoration-color: var(--accent); color: var(--accent); }
 .site-foot__meta { margin: 0 0 0.25rem; }
 .site-foot__social { margin: 0; }
+
+body {
+  transition: background-color .15s ease, color .15s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  body { transition: none; }
+}
+
+.theme-toggle {
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0.25rem 0.4rem;
+  border-radius: 4px;
+  color: var(--ink-soft);
+}
+.theme-toggle:hover { color: var(--accent); }
+.theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
