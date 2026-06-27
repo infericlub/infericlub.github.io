@@ -1,25 +1,32 @@
 ---
 title: "Frida hook: dump FlutterSecureStorage reads"
-author: fnox
-date: 2026-05-02
-tags: [mobile, flutter, android, frida]
-description: "Intercept FlutterSecureStorage.read calls in a Flutter Android app and print key/value pairs. Useful when a Flutter binary keeps secrets in encrypted prefs."
+author: dsm
 ---
 
 ```javascript
 Java.perform(function () {
-    var SS = Java.use("com.it_nomads.fluttersecurestorage.FlutterSecureStorage");
+    var flutterSecureStorage = null;
 
-    SS.read.overload("java.lang.String").implementation = function (key) {
-        var v = this.read(key);
-        console.log("[FSS] read(" + key + ") = " + v);
-        return v;
-    };
+    try {
+        flutterSecureStorage = Java.use("com.it_nomads.fluttersecurestorage.FlutterSecureStorage");
 
-    SS.readAll.implementation = function () {
-        var m = this.readAll();
-        console.log("[FSS] readAll() = " + JSON.stringify(m));
-        return m;
-    };
+        if (flutterSecureStorage) {
+            console.log("> FlutterSecureStorage found");
+
+            flutterSecureStorage.read.overload('java.lang.String').implementation = function (key) {
+                var data = this.read(key);
+                console.log("Reading Data | Key: " + key + " | Data: " + data);
+                return data;
+            };
+
+            flutterSecureStorage.write.overload('java.lang.String', 'java.lang.String').implementation = function (key, value) {
+                console.log("Writing Data | Key: " + key + " | Data: " + value);
+                return this.write(key, value);
+            };
+        }
+    } catch (err) {
+        console.log("[!] FlutterSecureStorage not found yet. Retrying...");
+        setTimeout(arguments.callee, 5000); // you can change the time here if you prefer
+    }
 });
 ```
