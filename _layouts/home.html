@@ -4,7 +4,7 @@ layout: default
 
 <div class="box">
   <h1>{{ site.title }}</h1>
-  {{ site.tagline }}.
+  {{ site.tagline }}
 </div>
 
 <div class="flex flex-unequal">
@@ -27,9 +27,8 @@ layout: default
   <div class="box flex-item-unequal" style="min-width: 14rem;">
     <h1>Find us elsewhere</h1>
     <ul class="short-list">
-      {%- if site.social.github -%}<li><q>github</q> <a href="{{ site.social.github }}">inferigang</a></li>{%- endif -%}
-      {%- if site.social.twitter -%}<li><q>twitter</q> <a href="{{ site.social.twitter }}">inferigang</a></li>{%- endif -%}
-      {%- if site.social.discord -%}<li><q>discord</q> <a href="{{ site.social.discord }}">inferi.club</a></li>{%- endif -%}
+      {%- if site.social.github -%}<li><q>github</q> <a href="{{ site.social.github }}">infericlub</a></li>{%- endif -%}
+      {%- if site.social.twitter -%}<li><q>twitter</q> <a href="{{ site.social.twitter }}">infericlub</a></li>{%- endif -%}
       <li><q>rss</q> <a href="{{ '/feed.xml' | relative_url }}">feed.xml</a></li>
     </ul>
   </div>
@@ -39,14 +38,14 @@ layout: default
 <div class="flex flex-unequal">
 
   <div class="box flex-item-unequal">
-    <h1>Recent snippets</h1>
-    {%- assign snippets = site.snippets | sort: "date" | reverse | slice: 0, 4 -%}
+    <h1>Snippets</h1>
+    {%- assign snippets = site.snippets | sort: "title" | slice: 0, 4 -%}
     {%- if snippets.size == 0 -%}
       no snippets yet.
     {%- else -%}
     <ul class="short-list">
       {%- for s in snippets -%}
-        <li><q>{{ s.date | date: "%Y.%m.%d" }}</q> <a href="{{ s.url | relative_url }}">{{ s.title }}</a></li>
+        <li><a href="{{ s.url | relative_url }}">{{ s.title }}</a></li>
       {%- endfor -%}
     </ul>
     <p><a href="{{ '/snippets/' | relative_url }}">→ all snippets</a></p>
@@ -59,7 +58,7 @@ layout: default
 
   <div class="box flex-item-unequal">
     <h1>About</h1>
-    a small collective writing notes on computer science and information security, rootkits, reverse engineering, web exploitation, mobile, kernel, AD, and assorted curiosities. each post signed by whoever wrote it. <a href="{{ '/about/' | relative_url }}">more →</a>
+    a small group of friends writing notes on computer science and information security, rootkits, reverse engineering, web exploitation, mobile, kernel, AD, and assorted curiosities. each post signed by whoever wrote it. <a href="{{ '/about/' | relative_url }}">more →</a>
   </div>
 
   <div class="box flex-item-unequal" style="min-width: 14rem;">

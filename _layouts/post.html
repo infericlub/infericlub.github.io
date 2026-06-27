@@ -2,15 +2,24 @@
 layout: default
 ---
 
-<div class="notes">
-  <div class="note-container">
-    <div class="note-title">{{ page.title }}</div>
-    <div class="note-date">{{ page.date | date: "%b %d %Y" }}</div>
-  </div>
-</div>
+<div class="post-layout">
+  <aside class="toc-sidebar" id="toc-sidebar" hidden>
+    <div class="box toc-box">
+      <h2>Summary</h2>
+      <nav id="toc-slot" aria-label="article summary"></nav>
+    </div>
+  </aside>
 
-<div class="box box-text-only">
-  <article class="prose" lang="{{ page.lang | default: site.lang }}">
+  <div class="post-main">
+    <div class="notes">
+      <div class="note-container">
+        <div class="note-title">{{ page.title }}</div>
+        <div class="note-date">{{ page.date | date: "%b %d %Y" }}</div>
+      </div>
+    </div>
+
+    <div class="box box-text-only">
+      <article class="prose" lang="{{ page.lang | default: site.lang }}">
     {%- assign words = content | number_of_words -%}
     {%- assign minutes = words | divided_by: 200 -%}
     {%- if minutes < 1 %}{% assign minutes = 1 %}{% endif -%}
@@ -35,11 +44,13 @@ layout: default
   </article>
 </div>
 
-<div class="flex flex-no-wrap nav-prev-next">
-  <div class="box box-alone">
-    <h1>{%- if page.previous -%}<a href="{{ page.previous.url | relative_url }}">← {{ page.previous.title }}</a>{%- else -%}<a href="{{ '/blog/' | relative_url }}">← blog</a>{%- endif -%}</h1>
-  </div>
-  <div class="box box-alone align-right">
-    <h1>{%- if page.next -%}<a href="{{ page.next.url | relative_url }}">{{ page.next.title }} →</a>{%- else -%}<a href="{{ '/blog/' | relative_url }}">blog →</a>{%- endif -%}</h1>
+    <div class="flex flex-no-wrap nav-prev-next">
+      <div class="box box-alone">
+        <h1>{%- if page.previous -%}<a href="{{ page.previous.url | relative_url }}">← {{ page.previous.title }}</a>{%- else -%}<a href="{{ '/blog/' | relative_url }}">← blog</a>{%- endif -%}</h1>
+      </div>
+      <div class="box box-alone align-right">
+        <h1>{%- if page.next -%}<a href="{{ page.next.url | relative_url }}">{{ page.next.title }} →</a>{%- else -%}<a href="{{ '/blog/' | relative_url }}">blog →</a>{%- endif -%}</h1>
+      </div>
+    </div>
   </div>
 </div>

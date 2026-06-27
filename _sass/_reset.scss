@@ -8,7 +8,7 @@ body {
   color: var(--text);
 }
 
-img, svg, video { max-width: 100%; height: auto; display: block; }
+img, svg, video { max-width: 100%; height: auto; display: block; margin-left: auto; margin-right: auto; }
 
 button {
   font: inherit;

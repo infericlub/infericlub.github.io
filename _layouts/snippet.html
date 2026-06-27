@@ -10,11 +10,6 @@ layout: default
 </div>
 
 <div class="box snippet">
-  {%- if page.tags and page.tags.size > 0 -%}
-  <p class="snippet-tags">
-    {%- for t in page.tags -%}<q>#{{ t }}</q>{%- endfor -%}
-  </p>
-  {%- endif -%}
   {{ content }}
   <div class="snippet-footer">
     <span><q>by</q> {{ page.author }}</span>

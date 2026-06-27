@@ -1,5 +1,5 @@
 title: inferi
-tagline: a collective writing desk for cs & security notes
+tagline: the underworld computing
 description: a collective of researchers writing about computer science and information security
 url: https://inferi.club
 lang: en
@@ -20,12 +20,11 @@ defaults:
 
 author:
   name: the inferi collective
-  url: https://github.com/inferigang
+  url: https://github.com/infericlub
 
 social:
-  github: https://github.com/inferigang
-  twitter: https://twitter.com/inferigang
-  discord: https://discord.gg/REPLACE-ME   # replace before deploy
+  github: https://github.com/infericlub
+  twitter: https://twitter.com/infericlub
   rss: /feed.xml
 
 markdown: kramdown

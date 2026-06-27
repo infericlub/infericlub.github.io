@@ -17,7 +17,7 @@
 .highlight .kn,
 .highlight .kp,
 .highlight .kr,
-.highlight .kt { color: var(--text); font-weight: 700; }
+.highlight .kt { color: var(--text); }
 
 .highlight .s,
 .highlight .s1,
@@ -56,6 +56,4 @@
 .highlight .mf,
 .highlight .mh,
 .highlight .mi,
-.highlight .mo { color: var(--text); font-weight: 700; }
-
-.highlight .err { color: var(--text); text-decoration: underline wavy var(--underline); }
+.highlight .mo { color: var(--text); }
