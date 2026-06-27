@@ -11,6 +11,14 @@ layout: default
   </aside>
 
   <div class="post-main">
+    <nav class="breadcrumbs" aria-label="breadcrumb">
+      <a href="{{ '/' | relative_url }}">home</a>
+      <span aria-hidden="true">/</span>
+      <a href="{{ '/blog/' | relative_url }}">blog</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">{{ page.title }}</span>
+    </nav>
+
     <div class="notes">
       <div class="note-container">
         <div class="note-title">{{ page.title }}</div>

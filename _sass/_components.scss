@@ -1,3 +1,28 @@
+/* BREADCRUMBS, post-page trail above the title */
+
+.breadcrumbs {
+  font-size: .95rem;
+  color: var(--underline);
+  margin-bottom: .6rem;
+  letter-spacing: .01em;
+}
+.breadcrumbs a {
+  color: var(--underline);
+  text-decoration: none;
+}
+.breadcrumbs a:hover {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: var(--underline);
+}
+.breadcrumbs span[aria-hidden] {
+  margin: 0 .3em;
+  opacity: .6;
+}
+.breadcrumbs [aria-current] {
+  color: var(--text);
+}
+
 /* NOTES, used for blog index list and post page headers */
 
 .notes {
