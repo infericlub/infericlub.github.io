@@ -194,6 +194,51 @@
   text-align: center;
 }
 
+/* MEMBERS */
+
+.member {
+  flex: 0 1 calc((100% - 2 * 1.3rem) / 3);
+  min-width: 12rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.member-avatar {
+  display: block;
+  width: 6rem;
+  height: 6rem;
+  margin: 0 auto .75rem;
+  border: var(--border-style);
+  background: var(--bg1);
+  object-fit: cover;
+}
+.member-desc {
+  flex: 1;
+  text-align: center;
+}
+.member-desc :first-child { margin-top: 0; }
+.member-desc :last-child { margin-bottom: 0; }
+.member-socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .9rem;
+  margin-top: .9rem;
+  padding-top: .75rem;
+  border-top: var(--border-style);
+}
+.member-socials a {
+  display: inline-flex;
+  color: var(--link);
+  line-height: 1;
+}
+.member-socials a:hover { color: var(--text); }
+.member-socials iconify-icon {
+  font-size: 1.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
 /* PREV / NEXT NAV BOXES (used on blog/post pages) */
 
 .nav-prev-next {

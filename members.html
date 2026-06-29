@@ -1,0 +1,33 @@
+---
+layout: default
+title: members
+permalink: /members/
+---
+
+<div class="box">
+  <h1>members</h1>
+  the people behind inferi.
+</div>
+
+{%- assign members = site.members | sort: "position" -%}
+{%- if members.size == 0 -%}
+  <div class="box box-text-only">no members yet.</div>
+{%- else -%}
+<div class="flex">
+  {%- for m in members -%}
+  <div class="box flex-item member">
+    <h1>{{ m.name }}</h1>
+    <img class="member-avatar" src="https://github.com/{{ m.github }}.png" alt="{{ m.name }}" loading="lazy">
+    <div class="member-desc">{{ m.content }}</div>
+    {%- if m.github or m.linkedin or m.twitter or m.blog -%}
+    <div class="member-socials">
+      {%- if m.github -%}<a href="https://github.com/{{ m.github }}" aria-label="github"><iconify-icon icon="simple-icons:github"></iconify-icon></a>{%- endif -%}
+      {%- if m.linkedin -%}<a href="https://linkedin.com/in/{{ m.linkedin }}" aria-label="linkedin"><iconify-icon icon="simple-icons:linkedin"></iconify-icon></a>{%- endif -%}
+      {%- if m.twitter -%}<a href="https://twitter.com/{{ m.twitter }}" aria-label="twitter"><iconify-icon icon="simple-icons:x"></iconify-icon></a>{%- endif -%}
+      {%- if m.blog -%}<a href="{{ m.blog }}" aria-label="blog"><iconify-icon icon="mdi:web"></iconify-icon></a>{%- endif -%}
+    </div>
+    {%- endif -%}
+  </div>
+  {%- endfor -%}
+</div>
+{%- endif -%}

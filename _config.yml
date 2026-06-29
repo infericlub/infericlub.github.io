@@ -10,6 +10,8 @@ collections:
   snippets:
     output: true
     permalink: /snippets/:slug/
+  members:
+    output: false
 
 defaults:
   - scope:
