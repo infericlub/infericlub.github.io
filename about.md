@@ -8,4 +8,4 @@ inferi is a group of friends writing about computer science and information secu
 
 Each post is signed by whoever wrote it. We don't agree on everything; we share a desk.
 
-We don't take submissions yet. If you want to talk, find us on [github](https://github.com/infericlub), [twitter](https://twitter.com/infericlub).
+We don't take submissions yet. If you want to talk, find us on [github](https://github.com/infericlub), [twitter](https://x.com/infericlub).
