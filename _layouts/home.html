@@ -24,15 +24,6 @@ layout: default
     {%- endif -%}
   </div>
 
-  <div class="box flex-item-unequal" style="min-width: 14rem;">
-    <h1>Find us elsewhere</h1>
-    <ul class="short-list">
-      {%- if site.social.github -%}<li><q>github</q> <a href="{{ site.social.github }}">infericlub</a></li>{%- endif -%}
-      {%- if site.social.twitter -%}<li><q>twitter</q> <a href="{{ site.social.twitter }}">infericlub</a></li>{%- endif -%}
-      <li><q>rss</q> <a href="{{ '/feed.xml' | relative_url }}">feed.xml</a></li>
-    </ul>
-  </div>
-
 </div>
 
 <div class="flex flex-unequal">
@@ -50,6 +41,15 @@ layout: default
     </ul>
     <p><a href="{{ '/snippets/' | relative_url }}">→ all snippets</a></p>
     {%- endif -%}
+  </div>
+
+  <div class="box flex-item-unequal" style="min-width: 14rem;">
+    <h1>Find us elsewhere</h1>
+    <ul class="short-list">
+      {%- if site.social.github -%}<li><q>github</q> <a href="{{ site.social.github }}">infericlub</a></li>{%- endif -%}
+      {%- if site.social.twitter -%}<li><q>twitter</q> <a href="{{ site.social.twitter }}">infericlub</a></li>{%- endif -%}
+      <li><q>rss</q> <a href="{{ '/feed.xml' | relative_url }}">feed.xml</a></li>
+    </ul>
   </div>
 
 </div>
